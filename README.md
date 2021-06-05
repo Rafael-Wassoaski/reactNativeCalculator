@@ -1,4 +1,4 @@
-#React native calculator#
+# React native calculator
 
 Simple calculator to help me understant the *react native* principles.
 
