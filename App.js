@@ -28,6 +28,8 @@ import {
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
 
+import CalculatorButton from "./src/app/components/CalculatorButton";
+
 const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === "dark";
   return (
@@ -79,135 +81,40 @@ const App: () => Node = () => {
     <View style={{ ...backgroundStyle, flex: 1 }}>
       <Text style={styles.result}>{result}</Text>
       <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 1));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"1"}</Text>
-        </TouchableOpacity>
+        <CalculatorButton buttonText = {"1"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"2"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"3"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"+"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
 
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 2));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"2"}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 3));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"3"}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, "+"));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"+"}</Text>
-        </TouchableOpacity>
 
       </View>
 
       <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 4));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"4"}</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 5));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"5"}</Text>
-        </TouchableOpacity>
+        <CalculatorButton buttonText = {"4"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"5"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"6"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"-"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
 
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 6));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"6"}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, "-"));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"-"}</Text>
-        </TouchableOpacity>
 
       </View>
 
       <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 7));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"7"}</Text>
-        </TouchableOpacity>
+        <CalculatorButton buttonText = {"7"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"8"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"9"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
+        <CalculatorButton buttonText = {"*"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
 
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 8));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"8"}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, 9));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"9"}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, "*"));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"*"}</Text>
-        </TouchableOpacity>
+      </View>
+      <View style={styles.sectionContainer}>
+        <CalculatorButton buttonText = {"="} onPressFunction ={(value) => setResult(calculate(result))}/>
+        <CalculatorButton buttonText = {"/"} onPressFunction ={(value) => setResult(createEquation(result, value))}/>
       </View>
 
       <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            setResult(calculate(result));
-          }}
-          style={{ ...styles.buttonStyle, width: "75%" }}>
-          <Text style={styles.sectionTitle}>{"="}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            setResult(createEquation(result, "/"));
-          }}
-          style={{ ...styles.buttonStyle }}>
-          <Text style={styles.sectionTitle}>{"/"}</Text>
-        </TouchableOpacity>
-      </View>
+        <CalculatorButton buttonText = {"C"} onPressFunction ={(value) => setResult("0")}/>
 
-      <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            setResult("0");
-          }}
-          style={{ ...styles.buttonStyle, width: "100%" }}>
-          <Text style={styles.sectionTitle}>{"C"}</Text>
-        </TouchableOpacity>
-        </View>
+      </View>
     </View>
 
 
